@@ -1,7 +1,7 @@
 """SQLAlchemy models and databse architecture"""
 
 from flask_sqlalchemy import SQLAlchemy
-
+import psycopg2
 DB = SQLAlchemy()
 
 
