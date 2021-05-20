@@ -36,7 +36,7 @@ class Tweet(DB.Model):
         nullable=False)
 
     ### TODO STRETCH GOAL ###
-    user = DB.relationship('User', backref=DB.backref('Tweet', lazy=True))
+    user = DB.relationship('User', backref=DB.backref('tweets', lazy=True))
 
     def __repr__(self):
         return f"<Tweet: {self.text}>"
