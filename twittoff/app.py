@@ -13,7 +13,7 @@ def create_app():
     
     # Create different configs for heroku deployment (postgresql) vs. local (sqlite3)
     HEROKU_DEP = getenv("HEROKU_DEP")
-    # Herkou still defaults the deprecated prexix in the database url, replace it
+    # Herkou still defaults the deprecated prefix in the database url, replace it
     if HEROKU_DEP:
         app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URL").replace('postgres://', 'postgresql://')
     else:
@@ -23,6 +23,7 @@ def create_app():
 
     @app.route('/')
     def root():
+        DB.create_all()
         return render_template("base.html", title="Home", users=User.query.all())
 
     @app.route('/reset')
