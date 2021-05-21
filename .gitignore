@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# sqlite database
+db.sqlite3
+
+# module 3 samples
+api_example/

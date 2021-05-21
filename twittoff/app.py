@@ -90,7 +90,7 @@ def create_app():
     # TODO: Update all users when button is clicked
     @app.route('/update')
     def update():
-        for user in users:
+        for user in User.query.all():
             add_or_update_user(user)
         
         return render_template('base.html',
