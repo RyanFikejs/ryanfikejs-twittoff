@@ -91,7 +91,7 @@ def create_app():
     @app.route('/update')
     def update():
         for user in User.query.all():
-            add_or_update_user(user)
+            add_or_update_user(user.username)
         
         return render_template('base.html',
                                title="All users' tweets updated!",
