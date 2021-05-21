@@ -1,7 +1,6 @@
 """SQLAlchemy models and databse architecture"""
 
 from flask_sqlalchemy import SQLAlchemy
-import psycopg2
 DB = SQLAlchemy()
 
 
@@ -26,7 +25,7 @@ class Tweet(DB.Model):
     id = DB.Column(DB.BigInteger, primary_key=True)
     
     # text column for 'tweet' 
-    text = DB.Column(DB.Unicode(300), nullable=False) #Nick took out the nullable argument, should I?
+    text = DB.Column(DB.Unicode(600), nullable=False) #Nick took out the nullable argument, should I?
     
     # Stores numbers that represent NLP vector(s)
     vect = DB.Column(DB.PickleType, nullable=False)
